@@ -1,16 +1,49 @@
-alert("mello shmello");
+// alert("sanity checks r cool");
 
-// const h1 = document
-let a = 'cool'
-let b = 'party'
-let c = 'nvm'
-function name (d, e, f) {
-    a, b, c
+/*----- constants -----*/
 
+
+/*----- app's state (variables) -----*/ 
+let grid, turn, winner;
+
+
+/*----- cached element references -----*/ 
+
+
+
+/*----- event listeners -----*/ 
+
+
+
+/*----- functions -----*/
+init();
+function init() {
+
+    grid = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+    ];
+    // console.table(grid) too see the grid in console to check if values add or slide
+ 
 }
-//function expression
-const nameTwo = function () {
-
+function addNumber() {
+    let options = [];
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            if (grid[i][j] === 0) {
+                options.push({
+                    x: i,
+                    y: j
+                });
+            }
+        }
+    }
+    if (options.length > 0);
+    let spot = random(options);
+    grid[spot.x][spot.y] = r > 0.5 ? 2 : 4;
 }
-// arrow
-const nameThree = () => 'hello'
+//stuff to add
+// slide function
+// add number function
