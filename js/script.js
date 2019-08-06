@@ -1,26 +1,35 @@
 // alert("sanity checks r cool");
 
 /*----- constants -----*/
-
+const PICTURES = {
+    "0": "emptySlot",
+    "1": "pic",
+    //etc. thru 8
+};
 
 /*----- app's state (variables) -----*/ 
 let grid, turn, winner;
 
-
+//
 /*----- cached element references -----*/ 
 
 
 
 /*----- event listeners -----*/ 
 
+// document.onkeydown
+document.addEventListener('keydown', logKey);
 
+function logKey(ev) {
+  console.log(event);
+}
 
 /*----- functions -----*/
 init();
 function init() {
 
     grid = [
-        [0, 0, 0, 0],
+        [1, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0]
@@ -28,22 +37,13 @@ function init() {
     // console.table(grid) too see the grid in console to check if values add or slide
  
 }
-function addNumber() {
-    let options = [];
-    for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-            if (grid[i][j] === 0) {
-                options.push({
-                    x: i,
-                    y: j
-                });
-            }
-        }
-    }
-    if (options.length > 0);
-    let spot = random(options);
-    grid[spot.x][spot.y] = r > 0.5 ? 2 : 4;
+function shuffler() {
+// shuffle pictures on array
 }
-//stuff to add
-// slide function
-// add number function
+function slide() {
+//handle arrow keys to move
+}
+function render() {             
+// render stuff
+}
+//shuffler, slider, keydown for arrow keys,
