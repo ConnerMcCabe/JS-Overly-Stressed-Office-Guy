@@ -23,20 +23,22 @@ section.grid {
     border: 5px solid black;
     margin: 5vmin;
 
+
 }
 section.grid div {
     border: 1px solid grey;
 
 }
-section.score {
+/* section.score {
     border: 1vmin solid black;
     width: 25vmin;
     height: 40vmin;
-}
+} */
 section.bigPicture {
-    display: grid;
-    grid-template-columns: repeat(4,15vmin);
-    grid-template-rows: repeat(4,15vmin);
+    display: flex;
+    width: 61.89vmin;
+    height: 61.89vmin;
     border: 5px solid black;
     margin: 5vmin;
+/* switch back to grid someday?  */
 }
