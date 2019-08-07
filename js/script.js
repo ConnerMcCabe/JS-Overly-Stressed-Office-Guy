@@ -1,8 +1,6 @@
-// alert("sanity checks r cool");
-
 /*----- constants -----*/
 const PICTURES = {
-    0 : "",
+    0 : "pictures/img00.png",
     1 : "pictures/img01.png",
     2 : "pictures/img02.png",
     3 : "pictures/img03.png",
@@ -17,12 +15,11 @@ const PICTURES = {
     12 : "pictures/img12.png",
     13 : "pictures/img13.png",
     14 : "pictures/img14.png",
-    15 : "pictures/img15.png",
-    16 : "pictures/img16.png"
+    15 : "pictures/img15.png"
 };
 
-let numArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-
+// let numArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+//shuffler example
 /*----- app's state (variables) -----*/ 
 let grid, winner;
 let shuffler;
@@ -33,43 +30,38 @@ let holder =[];
 /*----- event listeners -----*/ 
 document.querySelector('.grid').addEventListener('click', handleMove);
 
-// document.getElementById('').onclick(evt, handleMove);
 
 /*----- functions -----*/
 init();
 function init() {
 
     grid = [
-        1, 2, 3, 4,
-        5, 6, 7, 8,
-        9, 10, 11, 12,
-        13, 14, 15, 16
+        0, 1, 2, 3,
+        4, 5, 6, 7,
+        8, 9, 10, 11,
+        12, 13, 14, 15
     ];
      render();
     // console.table(grid) too see the grid in console to check if values add or slide
     // logic behind moving just the blank tile
 }
-//sanity check 2, color tiles for moving or shuffling
-
-for(let x= 0; x<16; x++)
-{// shuffle an array
-    shuffler = (Math.floor(Math.random() * 100))%numArray.length;
-    // console.log(numArray.splice(shuffler,1));
+// shuffle an array
+for(let x= 0; x<16; x++) {
+    shuffler = (Math.floor(Math.random() * 100))%grid.length;
+    console.log(grid.splice(shuffler,1));
 }
-
-
-
 function handleMove(evt) { 
     let moveIdx = parseInt(evt.target.id);
         holder.push(moveIdx);
-
-        // if (holder.length >= 1) {
-        //     return
-        // } else {
-
-        // }
-    // console.log(moveIdx);
- //push moveIdx to an array if the [].length is =2 swap the positions of the value 
+        if (holder.length == 2) {
+       
+            let valAplha = grid[holder[0]];
+            grid[holder[0]] = grid[holder[1]];
+            grid[holder[1]] = valAplha;
+            holder = [];
+            render();
+        }
+ //swap the positions of the value 
 }
 //grid[holder[0]] grid[holder[1]]
 function render()
