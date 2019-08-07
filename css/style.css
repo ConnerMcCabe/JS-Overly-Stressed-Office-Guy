@@ -8,7 +8,6 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
 }
 h1 {
     font-size: 15vmin;
@@ -22,23 +21,19 @@ section.grid {
     grid-template-rows: repeat(4,15vmin);
     border: 5px solid black;
     margin: 5vmin;
-
-
 }
 section.grid div {
     border: 1px solid grey;
     background-size: 100%;
+    
 }
-/* section.score {
-    border: 1vmin solid black;
-    width: 25vmin;
-    height: 40vmin;
-} */
+section.grid:hover {
+    background-color: black;
+}
 section.bigPicture {
     display: flex;
     width: 61.89vmin;
     height: 61.89vmin;
     border: 5px solid black;
     margin: 5vmin;
-/* switch back to grid someday?  */
 }

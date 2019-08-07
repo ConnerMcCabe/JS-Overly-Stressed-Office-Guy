@@ -18,14 +18,16 @@ const PICTURES = {
     15 : "pictures/img15.png"
 };
 
-// let numArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-//shuffler example
-/*----- app's state (variables) -----*/ 
-let grid, winner;
-let shuffler;
-let holder =[];
-/*----- cached element references -----*/ 
 
+
+/*----- app's state (variables) -----*/ 
+let grid, shuffler; 
+let winner = 0;
+let holder =[];
+
+
+/*----- cached element references -----*/ 
+const timer = document.querySelector('#timer')
 
 /*----- event listeners -----*/ 
 document.querySelector('.grid').addEventListener('click', handleMove);
@@ -34,24 +36,25 @@ document.querySelector('.grid').addEventListener('click', handleMove);
 /*----- functions -----*/
 init();
 function init() {
-
+let numArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     grid = [
         0, 1, 2, 3,
         4, 5, 6, 7,
         8, 9, 10, 11,
         12, 13, 14, 15
     ];
+    for(let x= 0; x<16; x++) {
+    shuffler = (Math.floor(Math.random() * 100))%numArray.length;
+    grid[x] = numArray.splice(shuffler,1);
+}
      render();
     // console.table(grid) too see the grid in console to check if values add or slide
-    // logic behind moving just the blank tile
+    
 }
-// shuffle an array
-for(let x= 0; x<16; x++) {
-    shuffler = (Math.floor(Math.random() * 100))%grid.length;
-    console.log(grid.splice(shuffler,1));
-}
+
 function handleMove(evt) { 
     let moveIdx = parseInt(evt.target.id);
+    if (isNaN(moveIdx)) {return}
         holder.push(moveIdx);
         if (holder.length == 2) {
        
@@ -63,12 +66,27 @@ function handleMove(evt) {
         }
  //swap the positions of the value 
 }
-//grid[holder[0]] grid[holder[1]]
+// function countDown() {
+// let count = 30;
+// timer.textContent = count;
+// timer.style.border = '4px solid black';
+// let timerId = setInterval(count, 1000) 
+//     counter--;
+   
+
+// }
+
 function render()
 {
-    for(let x =0; x<16; x++) {           
+    for(let x = 0; x < 16; x++) {           
         let div = document.getElementById(`${x}`);  
         div.style.backgroundImage = `url(${PICTURES[grid[x]]})`;
     }
+    for(let x = 0; x < 16; x++) {
+        if (grid[x]==x)
+            {winner++}
+// array equality for the win, check grid against numArray 
+//to see if values == and if they do check the next value
+        }
 }
 
