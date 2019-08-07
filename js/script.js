@@ -24,7 +24,8 @@ const PICTURES = {
 let grid, shuffler; 
 let winner = 0;
 let holder =[];
-
+let timerId;
+let count = 1000;
 
 /*----- cached element references -----*/ 
 const timer = document.querySelector('#timer')
@@ -47,7 +48,8 @@ let numArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     shuffler = (Math.floor(Math.random() * 100))%numArray.length;
     grid[x] = numArray.splice(shuffler,1);
 }
-     render();
+
+    render();
     // console.table(grid) too see the grid in console to check if values add or slide
     
 }
@@ -63,18 +65,25 @@ function handleMove(evt) {
             grid[holder[1]] = valAplha;
             holder = [];
             render();
+            countDown();
         }
  //swap the positions of the value 
 }
-// function countDown() {
-// let count = 30;
-// timer.textContent = count;
-// timer.style.border = '4px solid black';
-// let timerId = setInterval(count, 1000) 
-//     counter--;
-   
+function countDown() {
+timerId = setInterval(counter, 1000) 
 
-// }
+}
+function counter() {
+count--;
+timer.textContent = count;   
+timer.style.fontSize += .5;    
+    
+    if (count <= 0) {
+    clearInterval(timerId);
+    timer.style.display = "none";
+    
+    }
+}
 
 function render()
 {
@@ -82,11 +91,21 @@ function render()
         let div = document.getElementById(`${x}`);  
         div.style.backgroundImage = `url(${PICTURES[grid[x]]})`;
     }
-    for(let x = 0; x < 16; x++) {
-        if (grid[x]==x)
-            {winner++}
+    checkwinner();
+    
 // array equality for the win, check grid against numArray 
 //to see if values == and if they do check the next value
-        }
 }
 
+function checkwinner() {
+    for(let x = 0; x < 16; x++) {
+        if (grid[x] == x) {
+            winner++
+        }    
+    } 
+    if (winner == 16) {
+        confetti.start();
+        clearInterval(timerId);
+        timer.style.display = "none";
+    }  else {  winner = 0; }  
+}
