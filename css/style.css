@@ -27,7 +27,7 @@ section.grid {
 }
 section.grid div {
     border: 1px solid grey;
-
+    background-size: 100%;
 }
 /* section.score {
     border: 1vmin solid black;

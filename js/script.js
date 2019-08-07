@@ -18,6 +18,7 @@ const PICTURES = {
     13 : "pictures/img13.png",
     14 : "pictures/img14.png",
     15 : "pictures/img15.png",
+    16 : "pictures/img16.png"
 };
 
 let numArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
@@ -25,69 +26,52 @@ let numArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 /*----- app's state (variables) -----*/ 
 let grid, winner;
 let shuffler;
-
+let holder =[];
 /*----- cached element references -----*/ 
 
 
 /*----- event listeners -----*/ 
+document.querySelector('.grid').addEventListener('click', handleMove);
 
-// document.onkeydown
-// document.addEventListener('keydown', logKey);
+// document.getElementById('').onclick(evt, handleMove);
 
-// function logKey() {
-//   console.log(event);
-// }
-document.onkeydown = function (e) {
-    switch (e.key) {
-        case 'ArrowUp':
-            console.log('apples')
-            break;
-        case 'ArrowDown':
-            break;
-        case 'ArrowLeft':      
-            break;
-        case 'ArrowRight':
-    }
-  console.log(e.key)
-};
-  
 /*----- functions -----*/
 init();
 function init() {
 
     grid = [
         1, 2, 3, 4,
-        8, 7, 6, 5,
-        9, 0, 11, 13,
-        10, 14, 12, 15
+        5, 6, 7, 8,
+        9, 10, 11, 12,
+        13, 14, 15, 16
     ];
      render();
     // console.table(grid) too see the grid in console to check if values add or slide
     // logic behind moving just the blank tile
 }
 //sanity check 2, color tiles for moving or shuffling
-// 
-// function shuffler() {
-//     PICTURES.sort(function () {
-//         return .5 - Math.random();
-//     })
 
 for(let x= 0; x<16; x++)
-{
+{// shuffle an array
     shuffler = (Math.floor(Math.random() * 100))%numArray.length;
-    console.log(numArray.splice(shuffler,1));
+    // console.log(numArray.splice(shuffler,1));
 }
 
-// shuffle pictures on array
 
-function slide(ev) { 
-  
+
+function handleMove(evt) { 
+    let moveIdx = parseInt(evt.target.id);
+        holder.push(moveIdx);
+
+        // if (holder.length >= 1) {
+        //     return
+        // } else {
+
+        // }
+    // console.log(moveIdx);
+ //push moveIdx to an array if the [].length is =2 swap the positions of the value 
 }
-
-//handle arrow keys to move
-
-
-
+//grid[holder[0]] grid[holder[1]]
 function render()
 {
     for(let x =0; x<16; x++) {           
