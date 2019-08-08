@@ -29,6 +29,9 @@ section.grid div {
     background-size: 100%;
     
 }
+section.grid div:hover {
+    opacity: 0.75;
+}
 section#middle p {
     display: flex;
     justify-content: center;

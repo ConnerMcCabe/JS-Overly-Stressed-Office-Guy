@@ -95,7 +95,7 @@ timer.style.fontSize = `${fontSize}px`;
         clearInterval(timerId);
         timer.style.display = "none";
         resButton.style.visibility = "visible";
-    
+        document.querySelector('.grid').removeEventListener('click', handleMove);
     }
 }
 
