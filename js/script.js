@@ -25,11 +25,12 @@ let grid, shuffler;
 let winner = 0;
 let holder =[];
 let timerId;
-let count = 1000;
+let count, fontSize;
+
 
 /*----- cached element references -----*/ 
 const timer = document.querySelector('#timer')
-
+const placeholder = document.querySelector('#placeholder')
 /*----- event listeners -----*/ 
 document.querySelector('.grid').addEventListener('click', handleMove);
 
@@ -48,11 +49,15 @@ let numArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     shuffler = (Math.floor(Math.random() * 100))%numArray.length;
     grid[x] = numArray.splice(shuffler,1);
 }
-
+    count = 100;
+    fontSize = 25;
+    timer.style.display = "block";
+    timer.textContent = "";
     render();
     // console.table(grid) too see the grid in console to check if values add or slide
     
 }
+// need to add a reset button
 
 function handleMove(evt) { 
     let moveIdx = parseInt(evt.target.id);
@@ -66,21 +71,30 @@ function handleMove(evt) {
             holder = [];
             render();
             countDown();
+            
         }
  //swap the positions of the value 
 }
 function countDown() {
-timerId = setInterval(counter, 1000) 
+timerId = setInterval(counter, 1000); 
 
 }
 function counter() {
 count--;
+fontSize += 2;
 timer.textContent = count;   
-timer.style.fontSize += .5;    
-    
+timer.style.fontSize = `${fontSize}px`;    
+   
+    if (count <= 75) {
+        
+        if (count % 2) {
+            timer.style.color = "red"; 
+        } else {timer.style.color = "black"}
+    }
     if (count <= 0) {
-    clearInterval(timerId);
-    timer.style.display = "none";
+        clearInterval(timerId);
+        timer.style.display = "none";
+        resButton.style.visibility = "visible";
     
     }
 }
@@ -92,9 +106,7 @@ function render()
         div.style.backgroundImage = `url(${PICTURES[grid[x]]})`;
     }
     checkwinner();
-    
-// array equality for the win, check grid against numArray 
-//to see if values == and if they do check the next value
+
 }
 
 function checkwinner() {

@@ -12,8 +12,10 @@ main {
 h1 {
     font-size: 15vmin;
     text-align: center;
+    text-shadow: 1px 1px 1px black;
     color: #EFC860;
     margin: 0;
+
 }
 section.grid {
     display: grid;
@@ -27,8 +29,18 @@ section.grid div {
     background-size: 100%;
     
 }
-section.grid:hover {
-    background-color: black;
+section#middle p {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+button {
+    visibility: hidden;
+    border: 5px solid black;
+    font-weight: bold;
+    font-size: 5vmin;
+
 }
 section.bigPicture {
     display: flex;

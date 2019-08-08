@@ -1,7 +1,8 @@
 
-This is a sliding picture puzzle made in JavaScript, HTML, CSS using stock photos of office workers. The idea is to slide the randomized tiles into the correct spaces using the one empty grid space. The game is played on a four by four game board and this version will include a timer for 60 seconds and the slide function will be directed by the arrow keys.
+This is a sliding picture puzzle made in JavaScript, HTML, CSS using a stock photo of an office worker. The idea is to slide the randomized tiles into the correct spaces using mouse left clicks. The game is played on a four by four game board and this version will include a timer of 100. 
+In the future I would like to include some functionality that allows you to upload a picture to the puzzle, that crops the photo appropriately and 
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "2048 Wireframe screentshot")
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "picture puzzle Wireframe/ screentshot")
 
 AAU I long for the days of a simple picture puzzle on a 10 hour car ride, so lets do that but with comical stock photos
 
