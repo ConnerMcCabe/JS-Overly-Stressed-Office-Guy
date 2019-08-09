@@ -18,8 +18,6 @@ const PICTURES = {
     15 : "pictures/img15.png"
 };
 
-
-
 /*----- app's state (variables) -----*/ 
 let grid, shuffler; 
 let winner = 0;
@@ -27,13 +25,11 @@ let holder =[];
 let timerId;
 let count, fontSize;
 
-
 /*----- cached element references -----*/ 
 const timer = document.querySelector('#timer')
-const placeholder = document.querySelector('#placeholder')
+
 /*----- event listeners -----*/ 
 document.querySelector('.grid').addEventListener('click', handleMove);
-
 
 /*----- functions -----*/
 init();
@@ -48,48 +44,45 @@ let numArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     for(let x= 0; x<16; x++) {
     shuffler = (Math.floor(Math.random() * 100))%numArray.length;
     grid[x] = numArray.splice(shuffler,1);
+//initializes the game board then shuffles the grid 
+//using numArray
 }
     count = 100;
     fontSize = 25;
     timer.style.display = "block";
     timer.textContent = "";
     render();
-    // console.table(grid) too see the grid in console to check if values add or slide
-    
+// sets the values of some of the variables and renders   
 }
-// need to add a reset button
-
 function handleMove(evt) { 
     let moveIdx = parseInt(evt.target.id);
     if (isNaN(moveIdx)) {return}
         holder.push(moveIdx);
         if (holder.length == 2) {
        
-            let valAplha = grid[holder[0]];
+            let valAlpha = grid[holder[0]];
             grid[holder[0]] = grid[holder[1]];
-            grid[holder[1]] = valAplha;
+            grid[holder[1]] = valAlpha;
             holder = [];
             render();
-            countDown();
-            
+            countDown();   
         }
- //swap the positions of the value 
 }
+//throws the value of grid clicked on (the first and second click) into the holder array then swaps the value using the valAlpha, empties the holder array, renders and triggers countDown
 function countDown() {
 timerId = setInterval(counter, 1000); 
-
 }
+//set up for the timer
 function counter() {
 count--;
 fontSize += 2;
 timer.textContent = count;   
 timer.style.fontSize = `${fontSize}px`;    
-   
     if (count <= 75) {
-        
         if (count % 2) {
             timer.style.color = "red"; 
         } else {timer.style.color = "black"}
+//sets up the counter with the count, fontsize, and flashing
     }
     if (count <= 0) {
         clearInterval(timerId);
@@ -98,7 +91,8 @@ timer.style.fontSize = `${fontSize}px`;
         document.querySelector('.grid').removeEventListener('click', handleMove);
     }
 }
-
+//when the count hits 0 the counter display is taken away
+//makes the reset button visible and RemEvLis on the click
 function render()
 {
     for(let x = 0; x < 16; x++) {           
@@ -106,14 +100,11 @@ function render()
         div.style.backgroundImage = `url(${PICTURES[grid[x]]})`;
     }
     checkwinner();
-
 }
-
+//sets up the display on the grid and runs checkwinner
 function checkwinner() {
     for(let x = 0; x < 16; x++) {
-        if (grid[x] == x) {
-            winner++
-        }    
+        if (grid[x] == x) { winner++ }  
     } 
     if (winner == 16) {
         confetti.start();
@@ -121,3 +112,4 @@ function checkwinner() {
         timer.style.display = "none";
     }  else {  winner = 0; }  
 }
+//checks if the grid matches and if it does it increments "winner" by one, when "winner" adds up to 16 the confetti falls
