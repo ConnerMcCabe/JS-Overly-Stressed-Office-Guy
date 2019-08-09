@@ -1,4 +1,4 @@
-### OVERLY STRESSED OFFICE GUY
+## OVERLY STRESSED OFFICE GUY
 
 Made with JavaScript, HTML, CSS
 
@@ -8,16 +8,16 @@ AAU I long for the days of a simple picture puzzle on a 10 hour car ride, so let
 
 AAU I want to be able to drag and upload photos to the shuffler
 
-#### WIRE FRAME:
+### WIRE FRAME:
 ![wireframe](pictures/wireframe.png "picture puzzle Wireframe")
 
-#### SCREEN SHOT:
+### SCREEN SHOT:
 ![ScreenShot](pictures/ScreenShot.png "picture puzzle screentshot")
 
-#### PLAY HERE:
+### PLAY HERE:
 and here is a link to the game: 
-[Picture Puzzle](superstressofficeguy.surge.sh)
+[OVERLY STRESSED OFFICE GUY](overlystressedofficeguypp.surge.sh)
 
-#### NEXT STEPS:
+### NEXT STEPS:
 In the future I would like to include some functionality that allows you to upload a picture to the puzzle, that crops the photo appropriately, and cuts it into 16 seperate grid cells.
 Or just add some more sweet annoying features like a grid that jumps away from you as the timer goes down, maybe make the title shake and take away the big picture.
