@@ -16,7 +16,7 @@ AAU I want to be able to drag and upload photos to the shuffler
 
 ### PLAY HERE:
 and here is a link to the game: 
-[OVERLY STRESSED OFFICE GUY](https://connermccabe.github.io/project1/)
+[OVERLY STRESSED OFFICE GUY](https://connermccabe.github.io/JS-Overly-Stressed-Office-Guy/)
 
 ### NEXT STEPS:
 In the future I would like to include some functionality that allows you to upload a picture to the puzzle, that crops the photo appropriately, and cuts it into 16 seperate grid cells.
